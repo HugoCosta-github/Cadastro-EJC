@@ -285,7 +285,7 @@ namespace CadastroEJC_Catedral {
             
             private global::System.Data.DataColumn columnTelefone;
             
-            private global::System.Data.DataColumn columnIdade;
+            private global::System.Data.DataColumn columnData_Nascimento;
             
             private global::System.Data.DataColumn columnParoquia;
             
@@ -362,9 +362,9 @@ namespace CadastroEJC_Catedral {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn IdadeColumn {
+            public global::System.Data.DataColumn Data_NascimentoColumn {
                 get {
-                    return this.columnIdade;
+                    return this.columnData_Nascimento;
                 }
             }
             
@@ -469,13 +469,13 @@ namespace CadastroEJC_Catedral {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public jovemRow AddjovemRow(string Nome, decimal Telefone, decimal Idade, string Paroquia, string Apelido, byte Batismo, byte Primeira_Eucaristia, byte Crisma, string Nome_Pai, string Nome_Mae, byte[] Foto) {
+            public jovemRow AddjovemRow(string Nome, decimal Telefone, decimal Data_Nascimento, string Paroquia, string Apelido, byte Batismo, byte Primeira_Eucaristia, byte Crisma, string Nome_Pai, string Nome_Mae, byte[] Foto) {
                 jovemRow rowjovemRow = ((jovemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Nome,
                         Telefone,
-                        Idade,
+                        Data_Nascimento,
                         Paroquia,
                         Apelido,
                         Batismo,
@@ -516,7 +516,7 @@ namespace CadastroEJC_Catedral {
                 this.columnId = base.Columns["Id"];
                 this.columnNome = base.Columns["Nome"];
                 this.columnTelefone = base.Columns["Telefone"];
-                this.columnIdade = base.Columns["Idade"];
+                this.columnData_Nascimento = base.Columns["Data_Nascimento"];
                 this.columnParoquia = base.Columns["Paroquia"];
                 this.columnApelido = base.Columns["Apelido"];
                 this.columnBatismo = base.Columns["Batismo"];
@@ -536,8 +536,8 @@ namespace CadastroEJC_Catedral {
                 base.Columns.Add(this.columnNome);
                 this.columnTelefone = new global::System.Data.DataColumn("Telefone", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTelefone);
-                this.columnIdade = new global::System.Data.DataColumn("Idade", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdade);
+                this.columnData_Nascimento = new global::System.Data.DataColumn("Data_Nascimento", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnData_Nascimento);
                 this.columnParoquia = new global::System.Data.DataColumn("Paroquia", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnParoquia);
                 this.columnApelido = new global::System.Data.DataColumn("Apelido", typeof(string), null, global::System.Data.MappingType.Element);
@@ -752,17 +752,17 @@ namespace CadastroEJC_Catedral {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Idade {
+            public decimal Data_Nascimento {
                 get {
                     try {
-                        return ((decimal)(this[this.tablejovem.IdadeColumn]));
+                        return ((decimal)(this[this.tablejovem.Data_NascimentoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Idade\' na tabela \'jovem\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Data_Nascimento\' na tabela \'jovem\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablejovem.IdadeColumn] = value;
+                    this[this.tablejovem.Data_NascimentoColumn] = value;
                 }
             }
             
@@ -920,14 +920,14 @@ namespace CadastroEJC_Catedral {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsIdadeNull() {
-                return this.IsNull(this.tablejovem.IdadeColumn);
+            public bool IsData_NascimentoNull() {
+                return this.IsNull(this.tablejovem.Data_NascimentoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetIdadeNull() {
-                this[this.tablejovem.IdadeColumn] = global::System.Convert.DBNull;
+            public void SetData_NascimentoNull() {
+                this[this.tablejovem.Data_NascimentoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1189,7 +1189,7 @@ namespace CadastroEJC_Catedral.bd_ejcDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Nome", "Nome");
             tableMapping.ColumnMappings.Add("Telefone", "Telefone");
-            tableMapping.ColumnMappings.Add("Idade", "Idade");
+            tableMapping.ColumnMappings.Add("Idade", "Data_Nascimento");
             tableMapping.ColumnMappings.Add("Paroquia", "Paroquia");
             tableMapping.ColumnMappings.Add("Apelido", "Apelido");
             tableMapping.ColumnMappings.Add("Batismo", "Batismo");

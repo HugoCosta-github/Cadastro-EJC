@@ -110,7 +110,7 @@ SELECT Id, Nome, Telefone, Idade, Paroquia, Apelido, Batismo, Primeira_Eucaristi
               <Mapping SourceColumn="Id" DataSetColumn="Id" />
               <Mapping SourceColumn="Nome" DataSetColumn="Nome" />
               <Mapping SourceColumn="Telefone" DataSetColumn="Telefone" />
-              <Mapping SourceColumn="Idade" DataSetColumn="Idade" />
+              <Mapping SourceColumn="Idade" DataSetColumn="Data_Nascimento" />
               <Mapping SourceColumn="Paroquia" DataSetColumn="Paroquia" />
               <Mapping SourceColumn="Apelido" DataSetColumn="Apelido" />
               <Mapping SourceColumn="Batismo" DataSetColumn="Batismo" />
@@ -130,7 +130,7 @@ SELECT Id, Nome, Telefone, Idade, Paroquia, Apelido, Batismo, Primeira_Eucaristi
   <xs:element name="bd_ejcDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="bd_ejcDataSet" msprop:Generator_UserDSName="bd_ejcDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="jovem" msprop:Generator_TableClassName="jovemDataTable" msprop:Generator_TableVarName="tablejovem" msprop:Generator_TablePropName="jovem" msprop:Generator_RowDeletingName="jovemRowDeleting" msprop:Generator_RowChangingName="jovemRowChanging" msprop:Generator_RowEvHandlerName="jovemRowChangeEventHandler" msprop:Generator_RowDeletedName="jovemRowDeleted" msprop:Generator_UserTableName="jovem" msprop:Generator_RowChangedName="jovemRowChanged" msprop:Generator_RowEvArgName="jovemRowChangeEvent" msprop:Generator_RowClassName="jovemRow">
+        <xs:element name="jovem" msprop:Generator_TableClassName="jovemDataTable" msprop:Generator_TableVarName="tablejovem" msprop:Generator_RowChangedName="jovemRowChanged" msprop:Generator_TablePropName="jovem" msprop:Generator_RowDeletingName="jovemRowDeleting" msprop:Generator_RowChangingName="jovemRowChanging" msprop:Generator_RowEvHandlerName="jovemRowChangeEventHandler" msprop:Generator_RowDeletedName="jovemRowDeleted" msprop:Generator_RowClassName="jovemRow" msprop:Generator_UserTableName="jovem" msprop:Generator_RowEvArgName="jovemRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -142,7 +142,7 @@ SELECT Id, Nome, Telefone, Idade, Paroquia, Apelido, Batismo, Primeira_Eucaristi
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Telefone" msprop:Generator_ColumnVarNameInTable="columnTelefone" msprop:Generator_ColumnPropNameInRow="Telefone" msprop:Generator_ColumnPropNameInTable="TelefoneColumn" msprop:Generator_UserColumnName="Telefone" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Idade" msprop:Generator_ColumnVarNameInTable="columnIdade" msprop:Generator_ColumnPropNameInRow="Idade" msprop:Generator_ColumnPropNameInTable="IdadeColumn" msprop:Generator_UserColumnName="Idade" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Data_Nascimento" msprop:Generator_ColumnVarNameInTable="columnData_Nascimento" msprop:Generator_ColumnPropNameInRow="Data_Nascimento" msprop:Generator_ColumnPropNameInTable="Data_NascimentoColumn" msprop:Generator_UserColumnName="Data_Nascimento" type="xs:decimal" minOccurs="0" />
               <xs:element name="Paroquia" msprop:Generator_ColumnVarNameInTable="columnParoquia" msprop:Generator_ColumnPropNameInRow="Paroquia" msprop:Generator_ColumnPropNameInTable="ParoquiaColumn" msprop:Generator_UserColumnName="Paroquia" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
