@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label data_NascimentoLabel;
+            System.Windows.Forms.Label espiaoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastro));
-            this.bd_ejcDataSet = new CadastroEJC_Catedral.bd_ejcDataSet();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblEndereço = new System.Windows.Forms.Label();
             this.lblCidade = new System.Windows.Forms.Label();
             this.lblParoquia = new System.Windows.Forms.Label();
             this.lblApelido = new System.Windows.Forms.Label();
-            this.lblDtNasc = new System.Windows.Forms.Label();
             this.lblBairro = new System.Windows.Forms.Label();
             this.lblUF = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
@@ -58,27 +59,31 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxDadosPessoais = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBoxCrisma = new System.Windows.Forms.CheckBox();
-            this.checkBoxBatismo = new System.Windows.Forms.CheckBox();
-            this.checkBoxEucaristia = new System.Windows.Forms.CheckBox();
-            this.txtDtNasc = new System.Windows.Forms.TextBox();
-            this.lblLocalEJC = new System.Windows.Forms.Label();
-            this.txtLocalEJC = new System.Windows.Forms.TextBox();
-            this.lblAnoEJC = new System.Windows.Forms.Label();
             this.txtAnoEJC = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bd_ejcDataSet)).BeginInit();
+            this.lblAnoEJC = new System.Windows.Forms.Label();
+            this.txtLocalEJC = new System.Windows.Forms.TextBox();
+            this.lblLocalEJC = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxEucaristia = new System.Windows.Forms.CheckBox();
+            this.checkBoxBatismo = new System.Windows.Forms.CheckBox();
+            this.checkBoxCrisma = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.dtpData_Nascimento = new System.Windows.Forms.DateTimePicker();
+            this.checkBoxEspiao = new System.Windows.Forms.CheckBox();
+            this.jovemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bd_ejcDataSet = new CadastroEJC_Catedral.bd_ejcDataSet();
+            this.jovemTableAdapter = new CadastroEJC_Catedral.bd_ejcDataSetTableAdapters.jovemTableAdapter();
+            this.tableAdapterManager = new CadastroEJC_Catedral.bd_ejcDataSetTableAdapters.TableAdapterManager();
+            data_NascimentoLabel = new System.Windows.Forms.Label();
+            espiaoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Foto)).BeginInit();
             this.groupBoxDadosPessoais.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jovemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bd_ejcDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bd_ejcDataSet
-            // 
-            this.bd_ejcDataSet.DataSetName = "bd_ejcDataSet";
-            this.bd_ejcDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblNome
             // 
@@ -126,15 +131,6 @@
             this.lblApelido.Size = new System.Drawing.Size(45, 13);
             this.lblApelido.TabIndex = 4;
             this.lblApelido.Text = "Apelido:";
-            // 
-            // lblDtNasc
-            // 
-            this.lblDtNasc.AutoSize = true;
-            this.lblDtNasc.Location = new System.Drawing.Point(6, 91);
-            this.lblDtNasc.Name = "lblDtNasc";
-            this.lblDtNasc.Size = new System.Drawing.Size(107, 13);
-            this.lblDtNasc.TabIndex = 5;
-            this.lblDtNasc.Text = "Data de Nascimento:";
             // 
             // lblBairro
             // 
@@ -265,16 +261,17 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(15, 382);
+            this.btnSalvar.Location = new System.Drawing.Point(137, 416);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(97, 29);
             this.btnSalvar.TabIndex = 26;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(137, 382);
+            this.btnAlterar.Location = new System.Drawing.Point(240, 416);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(97, 29);
             this.btnAlterar.TabIndex = 27;
@@ -283,7 +280,7 @@
             // 
             // btnDeletar
             // 
-            this.btnDeletar.Location = new System.Drawing.Point(259, 382);
+            this.btnDeletar.Location = new System.Drawing.Point(344, 416);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(97, 29);
             this.btnDeletar.TabIndex = 28;
@@ -292,7 +289,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(379, 382);
+            this.btnCancelar.Location = new System.Drawing.Point(447, 416);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(97, 29);
             this.btnCancelar.TabIndex = 29;
@@ -311,6 +308,10 @@
             // 
             // groupBoxDadosPessoais
             // 
+            this.groupBoxDadosPessoais.Controls.Add(espiaoLabel);
+            this.groupBoxDadosPessoais.Controls.Add(this.checkBoxEspiao);
+            this.groupBoxDadosPessoais.Controls.Add(data_NascimentoLabel);
+            this.groupBoxDadosPessoais.Controls.Add(this.dtpData_Nascimento);
             this.groupBoxDadosPessoais.Controls.Add(this.txtAnoEJC);
             this.groupBoxDadosPessoais.Controls.Add(this.lblAnoEJC);
             this.groupBoxDadosPessoais.Controls.Add(this.txtLocalEJC);
@@ -321,11 +322,9 @@
             this.groupBoxDadosPessoais.Controls.Add(this.txtCidade);
             this.groupBoxDadosPessoais.Controls.Add(this.lblCidade);
             this.groupBoxDadosPessoais.Controls.Add(this.txtBairro);
-            this.groupBoxDadosPessoais.Controls.Add(this.txtDtNasc);
             this.groupBoxDadosPessoais.Controls.Add(this.lblApelido);
             this.groupBoxDadosPessoais.Controls.Add(this.txtTelefone);
             this.groupBoxDadosPessoais.Controls.Add(this.txtUF);
-            this.groupBoxDadosPessoais.Controls.Add(this.lblDtNasc);
             this.groupBoxDadosPessoais.Controls.Add(this.txtNome_Pai);
             this.groupBoxDadosPessoais.Controls.Add(this.lblNome_Mae);
             this.groupBoxDadosPessoais.Controls.Add(this.lblBairro);
@@ -335,10 +334,42 @@
             this.groupBoxDadosPessoais.Controls.Add(this.lblNome_Pai);
             this.groupBoxDadosPessoais.Location = new System.Drawing.Point(15, 49);
             this.groupBoxDadosPessoais.Name = "groupBoxDadosPessoais";
-            this.groupBoxDadosPessoais.Size = new System.Drawing.Size(525, 231);
+            this.groupBoxDadosPessoais.Size = new System.Drawing.Size(537, 249);
             this.groupBoxDadosPessoais.TabIndex = 31;
             this.groupBoxDadosPessoais.TabStop = false;
             this.groupBoxDadosPessoais.Text = "Dados Pessoais";
+            // 
+            // txtAnoEJC
+            // 
+            this.txtAnoEJC.Location = new System.Drawing.Point(418, 194);
+            this.txtAnoEJC.Name = "txtAnoEJC";
+            this.txtAnoEJC.Size = new System.Drawing.Size(64, 20);
+            this.txtAnoEJC.TabIndex = 28;
+            // 
+            // lblAnoEJC
+            // 
+            this.lblAnoEJC.AutoSize = true;
+            this.lblAnoEJC.Location = new System.Drawing.Point(361, 194);
+            this.lblAnoEJC.Name = "lblAnoEJC";
+            this.lblAnoEJC.Size = new System.Drawing.Size(51, 13);
+            this.lblAnoEJC.TabIndex = 27;
+            this.lblAnoEJC.Text = "Ano EJC:";
+            // 
+            // txtLocalEJC
+            // 
+            this.txtLocalEJC.Location = new System.Drawing.Point(110, 191);
+            this.txtLocalEJC.Name = "txtLocalEJC";
+            this.txtLocalEJC.Size = new System.Drawing.Size(242, 20);
+            this.txtLocalEJC.TabIndex = 26;
+            // 
+            // lblLocalEJC
+            // 
+            this.lblLocalEJC.AutoSize = true;
+            this.lblLocalEJC.Location = new System.Drawing.Point(6, 194);
+            this.lblLocalEJC.Name = "lblLocalEJC";
+            this.lblLocalEJC.Size = new System.Drawing.Size(105, 13);
+            this.lblLocalEJC.TabIndex = 25;
+            this.lblLocalEJC.Text = "Local que fez o EJC:";
             // 
             // groupBox1
             // 
@@ -347,42 +378,12 @@
             this.groupBox1.Controls.Add(this.checkBoxCrisma);
             this.groupBox1.Controls.Add(this.lblParoquia);
             this.groupBox1.Controls.Add(this.txtParoquia);
-            this.groupBox1.Location = new System.Drawing.Point(15, 286);
+            this.groupBox1.Location = new System.Drawing.Point(15, 304);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(520, 78);
+            this.groupBox1.Size = new System.Drawing.Size(537, 78);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vida Sacramental";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.pictureBox_Foto);
-            this.groupBox2.Location = new System.Drawing.Point(554, 58);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(125, 163);
-            this.groupBox2.TabIndex = 33;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Foto";
-            // 
-            // checkBoxCrisma
-            // 
-            this.checkBoxCrisma.AutoSize = true;
-            this.checkBoxCrisma.Location = new System.Drawing.Point(276, 24);
-            this.checkBoxCrisma.Name = "checkBoxCrisma";
-            this.checkBoxCrisma.Size = new System.Drawing.Size(57, 17);
-            this.checkBoxCrisma.TabIndex = 16;
-            this.checkBoxCrisma.Text = "Crisma";
-            this.checkBoxCrisma.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBatismo
-            // 
-            this.checkBoxBatismo.AutoSize = true;
-            this.checkBoxBatismo.Location = new System.Drawing.Point(9, 23);
-            this.checkBoxBatismo.Name = "checkBoxBatismo";
-            this.checkBoxBatismo.Size = new System.Drawing.Size(63, 17);
-            this.checkBoxBatismo.TabIndex = 17;
-            this.checkBoxBatismo.Text = "Batismo";
-            this.checkBoxBatismo.UseVisualStyleBackColor = true;
             // 
             // checkBoxEucaristia
             // 
@@ -394,52 +395,110 @@
             this.checkBoxEucaristia.Text = "Primeira Eucaristia";
             this.checkBoxEucaristia.UseVisualStyleBackColor = true;
             // 
-            // txtDtNasc
+            // checkBoxBatismo
             // 
-            this.txtDtNasc.Location = new System.Drawing.Point(119, 88);
-            this.txtDtNasc.MaxLength = 3;
-            this.txtDtNasc.Name = "txtDtNasc";
-            this.txtDtNasc.Size = new System.Drawing.Size(109, 20);
-            this.txtDtNasc.TabIndex = 20;
+            this.checkBoxBatismo.AutoSize = true;
+            this.checkBoxBatismo.Location = new System.Drawing.Point(9, 23);
+            this.checkBoxBatismo.Name = "checkBoxBatismo";
+            this.checkBoxBatismo.Size = new System.Drawing.Size(63, 17);
+            this.checkBoxBatismo.TabIndex = 17;
+            this.checkBoxBatismo.Text = "Batismo";
+            this.checkBoxBatismo.UseVisualStyleBackColor = true;
             // 
-            // lblLocalEJC
+            // checkBoxCrisma
             // 
-            this.lblLocalEJC.AutoSize = true;
-            this.lblLocalEJC.Location = new System.Drawing.Point(6, 194);
-            this.lblLocalEJC.Name = "lblLocalEJC";
-            this.lblLocalEJC.Size = new System.Drawing.Size(105, 13);
-            this.lblLocalEJC.TabIndex = 25;
-            this.lblLocalEJC.Text = "Local que fez o EJC:";
+            this.checkBoxCrisma.AutoSize = true;
+            this.checkBoxCrisma.Location = new System.Drawing.Point(276, 24);
+            this.checkBoxCrisma.Name = "checkBoxCrisma";
+            this.checkBoxCrisma.Size = new System.Drawing.Size(57, 17);
+            this.checkBoxCrisma.TabIndex = 16;
+            this.checkBoxCrisma.Text = "Crisma";
+            this.checkBoxCrisma.UseVisualStyleBackColor = true;
             // 
-            // txtLocalEJC
+            // groupBox2
             // 
-            this.txtLocalEJC.Location = new System.Drawing.Point(110, 191);
-            this.txtLocalEJC.Name = "txtLocalEJC";
-            this.txtLocalEJC.Size = new System.Drawing.Size(242, 20);
-            this.txtLocalEJC.TabIndex = 26;
+            this.groupBox2.Controls.Add(this.pictureBox_Foto);
+            this.groupBox2.Location = new System.Drawing.Point(554, 58);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(125, 163);
+            this.groupBox2.TabIndex = 33;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Foto";
             // 
-            // lblAnoEJC
+            // btnNovo
             // 
-            this.lblAnoEJC.AutoSize = true;
-            this.lblAnoEJC.Location = new System.Drawing.Point(361, 194);
-            this.lblAnoEJC.Name = "lblAnoEJC";
-            this.lblAnoEJC.Size = new System.Drawing.Size(51, 13);
-            this.lblAnoEJC.TabIndex = 27;
-            this.lblAnoEJC.Text = "Ano EJC:";
+            this.btnNovo.Location = new System.Drawing.Point(34, 416);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(97, 29);
+            this.btnNovo.TabIndex = 34;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
-            // txtAnoEJC
+            // data_NascimentoLabel
             // 
-            this.txtAnoEJC.Location = new System.Drawing.Point(418, 194);
-            this.txtAnoEJC.Name = "txtAnoEJC";
-            this.txtAnoEJC.Size = new System.Drawing.Size(64, 20);
-            this.txtAnoEJC.TabIndex = 28;
+            data_NascimentoLabel.AutoSize = true;
+            data_NascimentoLabel.Location = new System.Drawing.Point(6, 91);
+            data_NascimentoLabel.Name = "data_NascimentoLabel";
+            data_NascimentoLabel.Size = new System.Drawing.Size(92, 13);
+            data_NascimentoLabel.TabIndex = 28;
+            data_NascimentoLabel.Text = "Data Nascimento:";
+            // 
+            // dtpData_Nascimento
+            // 
+            this.dtpData_Nascimento.CustomFormat = "dd/MM/yyyy";
+            this.dtpData_Nascimento.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.jovemBindingSource, "Data_Nascimento", true));
+            this.dtpData_Nascimento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpData_Nascimento.Location = new System.Drawing.Point(94, 88);
+            this.dtpData_Nascimento.Name = "dtpData_Nascimento";
+            this.dtpData_Nascimento.Size = new System.Drawing.Size(113, 20);
+            this.dtpData_Nascimento.TabIndex = 29;
+            // 
+            // espiaoLabel
+            // 
+            espiaoLabel.AutoSize = true;
+            espiaoLabel.Location = new System.Drawing.Point(26, 222);
+            espiaoLabel.Name = "espiaoLabel";
+            espiaoLabel.Size = new System.Drawing.Size(39, 13);
+            espiaoLabel.TabIndex = 29;
+            espiaoLabel.Text = "Espiao";
+            // 
+            // checkBoxEspiao
+            // 
+            this.checkBoxEspiao.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.jovemBindingSource, "Espiao", true));
+            this.checkBoxEspiao.Location = new System.Drawing.Point(9, 217);
+            this.checkBoxEspiao.Name = "checkBoxEspiao";
+            this.checkBoxEspiao.Size = new System.Drawing.Size(104, 24);
+            this.checkBoxEspiao.TabIndex = 30;
+            this.checkBoxEspiao.UseVisualStyleBackColor = true;
+            // 
+            // jovemBindingSource
+            // 
+            this.jovemBindingSource.DataMember = "jovem";
+            this.jovemBindingSource.DataSource = this.bd_ejcDataSet;
+            // 
+            // bd_ejcDataSet
+            // 
+            this.bd_ejcDataSet.DataSetName = "bd_ejcDataSet";
+            this.bd_ejcDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // jovemTableAdapter
+            // 
+            this.jovemTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.jovemTableAdapter = this.jovemTableAdapter;
+            this.tableAdapterManager.UpdateOrder = CadastroEJC_Catedral.bd_ejcDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // frmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(703, 422);
+            this.ClientSize = new System.Drawing.Size(697, 464);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.groupBoxDadosPessoais);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -453,7 +512,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCadastro";
             this.Text = "Cadastro de Membros do EJC";
-            ((System.ComponentModel.ISupportInitialize)(this.bd_ejcDataSet)).EndInit();
+            this.Load += new System.EventHandler(this.FrmCadastro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Foto)).EndInit();
             this.groupBoxDadosPessoais.ResumeLayout(false);
             this.groupBoxDadosPessoais.PerformLayout();
@@ -461,6 +520,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jovemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bd_ejcDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,7 +534,6 @@
         private System.Windows.Forms.Label lblCidade;
         private System.Windows.Forms.Label lblParoquia;
         private System.Windows.Forms.Label lblApelido;
-        private System.Windows.Forms.Label lblDtNasc;
         private System.Windows.Forms.Label lblBairro;
         private System.Windows.Forms.Label lblUF;
         private System.Windows.Forms.Label lblTelefone;
@@ -501,11 +561,16 @@
         private System.Windows.Forms.CheckBox checkBoxEucaristia;
         private System.Windows.Forms.CheckBox checkBoxBatismo;
         private System.Windows.Forms.CheckBox checkBoxCrisma;
-        private System.Windows.Forms.TextBox txtDtNasc;
         private System.Windows.Forms.TextBox txtAnoEJC;
         private System.Windows.Forms.Label lblAnoEJC;
         private System.Windows.Forms.TextBox txtLocalEJC;
         private System.Windows.Forms.Label lblLocalEJC;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.BindingSource jovemBindingSource;
+        private bd_ejcDataSetTableAdapters.jovemTableAdapter jovemTableAdapter;
+        private bd_ejcDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DateTimePicker dtpData_Nascimento;
+        private System.Windows.Forms.CheckBox checkBoxEspiao;
     }
 }
 

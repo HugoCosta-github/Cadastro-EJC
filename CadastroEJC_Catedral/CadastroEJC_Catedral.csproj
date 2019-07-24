@@ -61,6 +61,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bd_ejcDataSet.cs">
+      <DependentUpon>bd_ejcDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="bd_ejcDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
